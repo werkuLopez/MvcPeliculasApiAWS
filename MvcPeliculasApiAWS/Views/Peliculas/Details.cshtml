@@ -1,0 +1,64 @@
+﻿@model MvcPeliculasApiAWS.Models.Pelicula
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Pelicula</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <img src="~/images/@Model.Foto" alt="@Model.Titulo" width="130" height="130" />
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdPelicula)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Genero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Argumento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Argumento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Actor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Actor)
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Youtube)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Youtube)
+        </dd>
+    </dl>
+</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/@@Model.YouTube" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div>
+    @Html.ActionLink("Editar", "UpdatePeli", new { id = Model.IdPelicula }) |
+    <a asp-action="Index">Back to List</a>
+</div>

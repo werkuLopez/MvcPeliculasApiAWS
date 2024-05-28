@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MvcPeliculasApiAWS.Models.Pelicula>
+
+@{
+    ViewData["Title"] = "PelisActor";
+}
+
+<h1>PelisActor</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<div class="container-xl">
+    <form class="row">
+        <div class="col-md-9">
+            <input class="form-control w-100" name="actor" placeholder="Enter the actor to search" />
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-outline-dark w-100">
+                filtrar
+            </button>
+        </div>
+    </form>
+</div>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdPelicula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Genero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Argumento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Actor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Foto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Youtube)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdPelicula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Argumento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Actor)
+                    </td>
+                    <td>
+                        <img src="~/images/@item.Foto" alt="@item.Titulo" width="130" height="130" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Youtube)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modificar", "UpdatePeli", new { id = item.IdPelicula }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.IdPelicula })
+                        @Html.ActionLink("Delete", "EliminarPeli", new { id = item.IdPelicula }) |
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
